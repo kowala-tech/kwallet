@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+  kowala-react-web:
+    image: kowala-react-web
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ./:/usr/src/app
+    entrypoint: "tail -f /dev/null"
+
+  kowala-react-web-tests:
+    image: kowala-react-web-tests
+    depends_on:
+        - kowala-react-web
+    build:
+        context: .
+        dockerfile: Dockerfile.cucumber
+    volumes:
+        - "./:/kowala"
+    entrypoint: "tail -f /dev/null"

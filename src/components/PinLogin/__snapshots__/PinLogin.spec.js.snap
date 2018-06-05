@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PinLogin it should match the snapshot 1`] = `
+<PinLogin
+  classes={
+    Object {
+      "close": "PinLogin-close-5",
+      "flexContainer": "PinLogin-flexContainer-1",
+      "lockIcon": "PinLogin-lockIcon-2",
+      "text": "PinLogin-text-4",
+      "unlockMessage": "PinLogin-unlockMessage-3",
+    }
+  }
+  error={false}
+  errorMessage=""
+  handleSubmit={[MockFunction]}
+  loading={false}
+  username="test-user"
+/>
+`;
