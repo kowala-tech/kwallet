@@ -7,15 +7,15 @@ pipeline:
             - make build
         when:
             branch: [develop, master]
-    deploy:
+    deploy-testnet:
         group: deploy
         image: plugins/s3
         acl: public-read
-        region: "us-east-1"
-        bucket: "wallet.staging.kowala.io"
-        source: app/dist/**/*
-        strip_prefix: app/dist
+        region: "us-east-2"
+        bucket: "wallet.testnet.kowala.io"
+        source: dist/**/*
+        strip_prefix: dist
         target: /
         encryption: AES256
         when:
-            branch: [master]
+            branch: [develop]
