@@ -18,4 +18,4 @@ pipeline:
         target: /
         encryption: AES256
         when:
-            branch: [develop]
+            branch: [master]
