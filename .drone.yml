@@ -7,13 +7,6 @@ pipeline:
             - make build
         when:
             branch: [develop, master]
-    test:
-        group: test
-        image: node:9
-        commands:
-            - make test
-        when:
-            branch: [develop, master]
     deploy:
         group: deploy
         image: plugins/s3
