@@ -33,7 +33,8 @@ class PinLogin extends React.Component {
 							error={error}
 							username={username}
 						/>
-						<Typography variant="caption" className={classes.unlockMessage}>
+						<Typography variant="caption"
+							className={classes.unlockMessage}>
 							Enter your PIN to unlock your wallet
 						</Typography>
 					</div>
