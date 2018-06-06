@@ -1,5 +1,5 @@
-IMAGE_NAME     := kowala-react-web
-CUCUMBER_IMAGE_NAME     := kowala-react-web-tests
+IMAGE_NAME     := kowala-app-web
+CUCUMBER_IMAGE_NAME     := kowala-app-web-tests
 
 install:
 	@yarn install --network-concurrency 1

@@ -1,0 +1,28 @@
+pipeline:
+    build:
+        group: build
+        image: node:9
+        commands:
+            - make install
+            - make build
+        when:
+            branch: [develop, master]
+    test:
+        group: test
+        image: node:9
+        commands:
+            - make test
+        when:
+            branch: [develop, master]
+    deploy:
+        group: deploy
+        image: plugins/s3
+        acl: public-read
+        region: "us-east-1"
+        bucket: "wallet.staging.kowala.io"
+        source: app/dist/**/*
+        strip_prefix: app/dist
+        target: /
+        encryption: AES256
+        when:
+            branch: [develop]
