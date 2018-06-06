@@ -6,6 +6,7 @@
     "npm": "^9.11.1"
   },
   "scripts": {
+    "precommit": "yarn run lint && yarn test",
     "start-message": "babel-node tools/startMessage.js",
     "prestart": "npm run start-message",
     "start": "concurrently -k -r -s first \"npm run test:watch\" \"npm run open:src\" \"npm run lint:watch\"",
