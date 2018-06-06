@@ -1,6 +1,5 @@
 import webpack from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
-// import FaviconsWebpackPlugin from "favicons-webpack-plugin";
 import path from "path";
 
 export default {
@@ -30,16 +29,13 @@ export default {
 		new webpack.NoEmitOnErrorsPlugin(),
 		new HtmlWebpackPlugin({     // Create HTML file that includes references to bundled CSS and JS.
 			template: "src/index.ejs",
+			favicon: "src/images/favicon.png",
 			minify: {
 				removeComments: true,
 				collapseWhitespace: true
 			},
 			inject: true
-		}),
-		// This is slow. Comment out for now.
-		// new FaviconsWebpackPlugin({
-		// 	logo: "./src/images/favicon.png",
-		// })
+		})
 	],
 	module: {
 		rules: [
