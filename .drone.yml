@@ -11,7 +11,7 @@ pipeline:
         group: deploy
         image: plugins/s3
         acl: public-read
-        region: "us-east-2"
+        region: "us-east-1"
         bucket: "wallet.testnet.kowala.io"
         source: dist/**/*
         strip_prefix: dist
