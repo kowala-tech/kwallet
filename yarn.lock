@@ -3557,7 +3557,7 @@ edge-core-js@^0.7.2:
 
 "edge-currency-kusd@https://github.com/kowala-tech/edge-currency-kusd.git#develop":
   version "0.0.1"
-  resolved "https://github.com/kowala-tech/edge-currency-kusd.git#c8767cf6837e6eaa13b560fe091b7b5fd5686b71"
+  resolved "https://github.com/kowala-tech/edge-currency-kusd.git#942b6e638cd9b19136a59fd6573f90dcdc794303"
   dependencies:
     biggystring "^3.0.0"
     bn.js "^4.11.7"
@@ -4074,8 +4074,8 @@ ethereumjs-util@^5.0.0, ethereumjs-util@^5.1.2:
     uuid "^2.0.1"
 
 ethjs-util@^0.1.3:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/ethjs-util/-/ethjs-util-0.1.4.tgz#1c8b6879257444ef4d3f3fbbac2ded12cd997d93"
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/ethjs-util/-/ethjs-util-0.1.5.tgz#50caa98c97397d15cdd983fbf4e7b3fe5594ccfd"
   dependencies:
     is-hex-prefixed "1.0.0"
     strip-hex-prefix "1.0.0"

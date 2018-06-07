@@ -1,6 +1,8 @@
 import { makeContext } from "edge-core-js";
 import { kusdCurrencyPluginFactory } from "edge-currency-kusd";
 
+export const walletType = "wallet:kusd-testnet";
+
 const options = {
 	apiKey: "e6eee331afb0385b6a6223719802fcfd00fc2331",
 	plugins: [ kusdCurrencyPluginFactory ],
@@ -8,6 +10,5 @@ const options = {
 };
 
 export const edgeContext = makeContext(options);
-export const walletType = "wallet:kusdtestnet";
 
 export default edgeContext;

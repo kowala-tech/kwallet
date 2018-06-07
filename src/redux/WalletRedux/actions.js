@@ -1,15 +1,16 @@
 import { walletType } from "../../modules/edgeContext";
-import { signAndSendTransaction, getWallet } from "../../modules/edge";
+import { signAndSendTransaction, getWallet, getLocalEdgeAccount } from "../../modules/edge";
 import secureRandom from "secure-random";
 
-export const createWallet = (account) => {
+export const createWallet = () => {
 	return (dispatch) => {
-		const kusdtestnetKey = Buffer.from(secureRandom(32)).toString("hex");
-		account.createWallet(
+		const privateKey = Buffer.from(secureRandom(32)).toString("hex");
+		getLocalEdgeAccount().createWallet(
 			walletType,
-			{ kusdtestnetKey },
+			{ privateKey },
 			(error, id) => {
-				if (error) return console.error({ message: "could not create wallet" });
+				if (error) { return console.error(error); }
+				console.log(id);
 				dispatch(loadWallet(id));
 			}
 		);
@@ -18,7 +19,8 @@ export const createWallet = (account) => {
 
 export function loadWallet(walletId) {
 	const wallet = getWallet(walletId);
-	const address = wallet.keys.kusdtestnetAddress;
+	console.log(wallet);
+	const address = wallet.keys.address;
 	const balance = wallet.getBalance();
 	return (dispatch) => {
 		wallet.getTransactions().then( (transactions) => {

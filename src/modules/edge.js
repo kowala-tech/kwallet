@@ -36,9 +36,12 @@ export function getPrimaryWallet() {
 	const account = getLocalEdgeAccount();
 	console.log("Getting wallets for account " + account.id);
 	const primaryWalletId = account.activeWalletIds[0];
-	console.log("Found wallet id " + primaryWalletId);
-	const primaryWallet = getWallet(primaryWalletId);
-	return primaryWallet;
+	if (primaryWalletId) {
+		console.log("Found wallet id " + primaryWalletId);
+		return getWallet(primaryWalletId);
+	} else {
+		return null;
+	}
 }
 
 export async function signAndSendTransaction(walletId, toAddress, amountInWei) {

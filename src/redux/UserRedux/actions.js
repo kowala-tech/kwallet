@@ -59,8 +59,8 @@ const loginError = (errorMessage) => {
 const setPrimaryWallet = () => {
 	return (dispatch) => {
 		const primaryWallet = getPrimaryWallet();
-		console.log("Primary wallet found with id " + primaryWallet.id);
 		if (primaryWallet) {
+			console.log("Primary wallet found with id " + primaryWallet.id);
 			dispatch(loadWallet(primaryWallet.id));
 			return;
 		} else {
