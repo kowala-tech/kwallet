@@ -3555,9 +3555,9 @@ edge-core-js@^0.7.2:
     scrypt-js "^2.0.3"
     utf8 "^3.0.0"
 
-"edge-currency-kusd@https://github.com/kowala-tech/edge-currency-kusd.git#develop":
+"edge-currency-kowala@https://github.com/kowala-tech/edge-currency-kowala.git#develop":
   version "0.0.1"
-  resolved "https://github.com/kowala-tech/edge-currency-kusd.git#942b6e638cd9b19136a59fd6573f90dcdc794303"
+  resolved "https://github.com/kowala-tech/edge-currency-kowala.git#22118ddcac8cf4824193525b0e2340cf55642536"
   dependencies:
     biggystring "^3.0.0"
     bn.js "^4.11.7"

@@ -1,3 +1,5 @@
+import { walletType } from "./edgeContext";
+
 const timeout = ms => new Promise(res => setTimeout(res, ms));
 
 const usernameAvailable = (username) => {
@@ -35,13 +37,8 @@ export function getWallet(id) {
 export function getPrimaryWallet() {
 	const account = getLocalEdgeAccount();
 	console.log("Getting wallets for account " + account.id);
-	const primaryWalletId = account.activeWalletIds[0];
-	if (primaryWalletId) {
-		console.log("Found wallet id " + primaryWalletId);
-		return getWallet(primaryWalletId);
-	} else {
-		return null;
-	}
+	const primaryWallet = account.getFirstWallet(walletType);
+	return primaryWallet;
 }
 
 export async function signAndSendTransaction(walletId, toAddress, amountInWei) {

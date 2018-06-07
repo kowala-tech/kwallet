@@ -10,7 +10,6 @@ export const createWallet = () => {
 			{ privateKey },
 			(error, id) => {
 				if (error) { return console.error(error); }
-				console.log(id);
 				dispatch(loadWallet(id));
 			}
 		);
@@ -19,7 +18,6 @@ export const createWallet = () => {
 
 export function loadWallet(walletId) {
 	const wallet = getWallet(walletId);
-	console.log(wallet);
 	const address = wallet.keys.address;
 	const balance = wallet.getBalance();
 	return (dispatch) => {

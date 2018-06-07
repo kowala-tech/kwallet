@@ -37,7 +37,7 @@
     "@material-ui/icons": "^1.1.0",
     "bignumber.js": "^7.2.1",
     "edge-core-js": "^0.7.2",
-    "edge-currency-kusd": "https://github.com/kowala-tech/edge-currency-kusd.git#develop",
+    "edge-currency-kowala": "https://github.com/kowala-tech/edge-currency-kowala.git#develop",
     "moment": "^2.20.1",
     "react": "^16.0.0",
     "react-copy-to-clipboard": "^5.0.1",

@@ -1,11 +1,11 @@
 import { makeContext } from "edge-core-js";
-import { kusdCurrencyPluginFactory } from "edge-currency-kusd";
+import { kowalaCurrencyPluginFactory } from "edge-currency-kowala";
 
 export const walletType = "wallet:kusd-testnet";
 
 const options = {
 	apiKey: "e6eee331afb0385b6a6223719802fcfd00fc2331",
-	plugins: [ kusdCurrencyPluginFactory ],
+	plugins: [ kowalaCurrencyPluginFactory ],
 	appId: "com.kowala-web-test.app"
 };
 
