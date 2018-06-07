@@ -19,3 +19,15 @@ pipeline:
         encryption: AES256
         when:
             branch: [develop]
+    deploy-testnet:
+        group: deploy
+        image: plugins/s3
+        acl: public-read
+        region: "us-east-1"
+        bucket: "wallet.zygote.kowala.io"
+        source: dist/**/*
+        strip_prefix: dist
+        target: /
+        encryption: AES256
+        when:
+            branch: [develop]
