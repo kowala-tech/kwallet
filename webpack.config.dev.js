@@ -3,6 +3,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import path from "path";
 
 export default {
+	mode: "development",
 	resolve: {
 		extensions: ["*", ".js", ".jsx", ".json"]
 	},
