@@ -19,7 +19,7 @@ pipeline:
         encryption: AES256
         when:
             branch: [develop]
-    deploy-testnet:
+    deploy-zygote:
         group: deploy
         image: plugins/s3
         acl: public-read
