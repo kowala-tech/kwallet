@@ -8,6 +8,7 @@ import CompressionPlugin from "compression-webpack-plugin";
 import path from "path";
 
 const GLOBALS = {
+	KOWALA_NETWORK: JSON.stringify(process.env.KOWALA_NETWORK),
 	"process.env.NODE_ENV": JSON.stringify("production"),
 	__DEV__: false
 };
