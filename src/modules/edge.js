@@ -47,7 +47,7 @@ export const getWallet = (id) => {
 export const getPrimaryWallet = () => {
 	const account = getLocalEdgeAccount();
 	console.log("Getting wallets for account " + account.id);
-	const primaryWallet = account.getFirstWallet(edgeWalletNamespace);
+	const primaryWallet = account.getFirstWalletInfo(edgeWalletNamespace);
 	return primaryWallet;
 };
 
