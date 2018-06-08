@@ -2,6 +2,7 @@ import webpack from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import path from "path";
 
+
 export default {
 	mode: "development",
 	resolve: {
@@ -23,6 +24,7 @@ export default {
 	},
 	plugins: [
 		new webpack.DefinePlugin({
+			KOWALA_NETWORK: JSON.stringify(process.env.KOWALA_NETWORK),
 			"process.env.NODE_ENV": JSON.stringify("development"), // Tells React to build in either dev or prod modes. https://facebook.github.io/react/downloads.html (See bottom)
 			__DEV__: true
 		}),

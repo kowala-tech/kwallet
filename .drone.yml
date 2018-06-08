@@ -1,14 +1,13 @@
 pipeline:
-    build:
-        group: build
+    build-kusd-testnet:
         image: node:9
         commands:
+            - export KOWALA_NETWORK="kusd-testnet"
             - make install
             - make build
         when:
-            branch: [develop, master]
-    deploy-testnet:
-        group: deploy
+            branch: [develop]
+    upload-kusd-testnet:
         image: plugins/s3
         acl: public-read
         region: "us-east-1"
@@ -19,8 +18,15 @@ pipeline:
         encryption: AES256
         when:
             branch: [develop]
-    deploy-zygote:
-        group: deploy
+    build-kusd-zygote:
+        image: node:9
+        commands:
+            - export KOWALA_NETWORK="kusd-zygote"
+            - make install
+            - make build
+        when:
+            branch: [develop]
+    upload-kusd-zygote:
         image: plugins/s3
         acl: public-read
         region: "us-east-1"

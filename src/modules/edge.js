@@ -1,7 +1,7 @@
 import { makeContext } from "edge-core-js";
 import { kowalaCurrencyPluginFactory } from "edge-currency-kowala";
 
-const edgeWalletName = "kusd-testnet";
+const edgeWalletName = KOWALA_NETWORK || "kusd-testnet";
 export const edgeWalletNamespace = "wallet:" + edgeWalletName;
 
 export const edge = makeContext({

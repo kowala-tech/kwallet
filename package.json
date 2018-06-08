@@ -269,7 +269,9 @@
       "react/self-closing-comp": 1,
       "react/sort-comp": 1
     },
-    "globals": {}
+    "globals": {
+      "KOWALA_NETWORK": false
+    }
   },
   "main": "index.js",
   "license": "MIT",
