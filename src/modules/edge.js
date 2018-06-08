@@ -1,6 +1,14 @@
-import { walletType } from "./edgeContext";
+import { makeContext } from "edge-core-js";
+import { kowalaCurrencyPluginFactory } from "edge-currency-kowala";
 
-const timeout = ms => new Promise(res => setTimeout(res, ms));
+const edgeWalletName = "kusd-testnet";
+export const edgeWalletNamespace = "wallet:" + edgeWalletName;
+
+export const edge = makeContext({
+	apiKey: "e6eee331afb0385b6a6223719802fcfd00fc2331",
+	plugins: [ kowalaCurrencyPluginFactory ],
+	appId: edgeWalletName
+});
 
 const usernameAvailable = (username) => {
 	try {
@@ -12,11 +20,13 @@ const usernameAvailable = (username) => {
 	}
 };
 
-export async function setEdgeAccount(account) {
+const timeout = ms => new Promise(res => setTimeout(res, ms));
+
+export const setEdgeAccount = async (account) => {
 	window.abcui.abcAccount = account;
 	await timeout(500); // edge is slow...so we wait
 	return account;
-}
+};
 
 export const getLocalEdgeAccount = () => {
 	try {
@@ -27,21 +37,21 @@ export const getLocalEdgeAccount = () => {
 	}
 };
 
-export function getWallet(id) {
+export const getWallet = (id) => {
 	console.log("Getting wallet " + id);
 	const account = getLocalEdgeAccount();
 	const wallets = account.currencyWallets;
 	return wallets[id];
-}
+};
 
-export function getPrimaryWallet() {
+export const getPrimaryWallet = () => {
 	const account = getLocalEdgeAccount();
 	console.log("Getting wallets for account " + account.id);
-	const primaryWallet = account.getFirstWallet(walletType);
+	const primaryWallet = account.getFirstWallet(edgeWalletNamespace);
 	return primaryWallet;
-}
+};
 
-export async function signAndSendTransaction(walletId, toAddress, amountInWei) {
+export const signAndSendTransaction = async (walletId, toAddress, amountInWei) => {
 	try {
 		const wallet = getWallet(walletId);
 		const spendParams = {
@@ -62,10 +72,12 @@ export async function signAndSendTransaction(walletId, toAddress, amountInWei) {
 	} catch (error) {
 		console.log(error);
 	}
-}
+};
 
-export async function usernameValid(username) {
+export const usernameValid = async (username) => {
 	const valid = username.length > 4;
 	const available = await usernameAvailable(username);
 	return valid && available;
-}
+};
+
+export default edge;

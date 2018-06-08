@@ -15,7 +15,7 @@ import WalletContainer from "../WalletContainer";
 import ModalContainer from "../ModalContainer";
 import MessageContainer from "../MessageContainer";
 import { openMessage } from "../MessageContainer/redux/actions";
-import { edgeContext } from "../../modules/edgeContext";
+import edge from "../../modules/edge";
 import { setUsername } from "../../redux/UserRedux";
 import PrivateRoute from "../PrivateRoute";
 
@@ -23,7 +23,7 @@ export class App extends React.Component {
 	constructor(props) {
 		super(props);
 		// Setup edge and store on window
-		window.abcui = edgeContext;
+		window.abcui = edge;
 		const self = this;
 		window.abcui.usernameList().then( (usernameList) => {
 			self.props.setUsername(usernameList[0]);

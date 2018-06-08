@@ -1,12 +1,16 @@
-import { walletType } from "../../modules/edgeContext";
-import { signAndSendTransaction, getWallet, getLocalEdgeAccount } from "../../modules/edge";
+import {
+	edgeWalletNamespace,
+	getLocalEdgeAccount,
+	getWallet,
+	signAndSendTransaction,
+} from "../../modules/edge";
 import secureRandom from "secure-random";
 
 export const createWallet = () => {
 	return (dispatch) => {
 		const privateKey = Buffer.from(secureRandom(32)).toString("hex");
 		getLocalEdgeAccount().createWallet(
-			walletType,
+			edgeWalletNamespace,
 			{ privateKey },
 			(error, id) => {
 				if (error) { return console.error(error); }
