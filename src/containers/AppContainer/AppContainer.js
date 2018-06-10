@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { compose } from "recompose";
 import { Switch, Route, withRouter, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import classNames from "classnames";
 // Material UI Imports
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
@@ -59,7 +60,12 @@ export class App extends React.Component {
 					</Switch>
 					<ModalContainer />
 					<MessageContainer />
-					<div className={classes.footer}>
+					<div className={classNames(
+						[classes.footer],
+						{
+							animated: true,
+							bounceInUp: true
+						})}>
 						<Typography variant="caption"
 							paragraph
 							className={classes.fadedText}>

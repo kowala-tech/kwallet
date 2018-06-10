@@ -63,7 +63,7 @@ export default {
 				minifyURLs: true
 			},
 			inject: true,
-			kowalaNetwork: JSON.stringify(process.env.KOWALA_NETWORK) || "kusd-testnet"
+			kowalaNetwork: process.env.KOWALA_NETWORK || "kusd-testnet"
 			// Note that you can add custom options here if you need to handle other custom logic in index.html
 			// To track JavaScript errors via TrackJS, sign up for a free trial at TrackJS.com and enter your token below.
 			// trackJSToken: "b98ea18752d84633a1d153a27fcc4d55"

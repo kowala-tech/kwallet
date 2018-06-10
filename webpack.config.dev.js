@@ -44,7 +44,7 @@ export default {
 				collapseWhitespace: true
 			},
 			inject: true,
-			kowalaNetwork: JSON.stringify(process.env.KOWALA_NETWORK) || "kusd-testnet"
+			kowalaNetwork: process.env.KOWALA_NETWORK || "kusd-testnet"
 		})
 	],
 	module: {
