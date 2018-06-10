@@ -59,8 +59,6 @@
     "secure-random": "^1.1.1"
   },
   "devDependencies": {
-    "utf-8-validate": "^4.0.2",
-    "bufferutil": "^3.0.5",
     "@babel/runtime": "^7.0.0-beta.49",
     "@storybook/addon-actions": "^3.3.10",
     "@storybook/addon-links": "^3.3.10",
@@ -80,6 +78,7 @@
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-1": "^6.24.1",
     "browser-sync": "^2.23.6",
+    "bufferutil": "^3.0.5",
     "chalk": "^2.3.2",
     "compression-webpack-plugin": "^1.1.9",
     "concurrently": "^3.5.1",
@@ -117,6 +116,7 @@
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
     "url-loader": "^1.0.1",
+    "utf-8-validate": "^4.0.2",
     "webpack": "^4.12.0",
     "webpack-bundle-analyzer": "^2.11.1",
     "webpack-dev-middleware": "^3.1.3",

@@ -20,43 +20,43 @@ import PersonIcon from "@material-ui/icons/Person";
 import styles from "./styles";
 import logoUrl from "../../images/kwallet.svg";
 import darkLogoUrl from "../../images/kwallet-dark.svg";
+import { deleteLocalAccount, logout } from "../../modules/edge";
 
 class Header extends React.Component {
 	state = {
 		menuAnchor: null,
 	};
 
-	handleClick = event => {
+	openMenu = event => {
 		this.setState({ menuAnchor: event.currentTarget });
 	};
 
-	handleClose = () => {
+	closeMenu = () => {
 		this.setState({ menuAnchor: null });
+	};
+
+	removeAccount = (username) => {
+		deleteLocalAccount(username).then( () => {
+			this.closeMenu();
+			location.assign("/");
+		});
+	};
+
+	lockAccount = () => {
+		logout().then( () => {
+			this.closeMenu();
+			this.props.history.replace("/login");
+		});
 	};
 
 	render() {
 		const {
 			classes,
 			user,
-			history,
 			leftButton
 		} = this.props;
 
 		const { menuAnchor } = this.state;
-
-		const removeAccount = (username) => {
-			window.abcui.deleteLocalAccount(username).then( () => {
-				this.handleClose();
-				window.location = "/";
-			});
-		};
-
-		const lockAccount = () => {
-			window.abcui.abcAccount.logout().then( () => {
-				history.replace("/login");
-				this.handleClose();
-			});
-		};
 
 		return (
 			<AppBar
@@ -91,7 +91,6 @@ class Header extends React.Component {
 									aria-owns={menuAnchor ? "user-menu" : null}
 									aria-haspopup="true"
 									className={classes.icon}
-									onClick={this.handleClick}
 								>
 									Log In
 								</Button>
@@ -105,7 +104,7 @@ class Header extends React.Component {
 									aria-owns={menuAnchor ? "user-menu" : null}
 									aria-haspopup="true"
 									className={classes.icon}
-									onClick={this.handleClick}
+									onClick={this.openMenu}
 								>
 									<PersonIcon />
 								</Button>
@@ -113,7 +112,7 @@ class Header extends React.Component {
 									id="user-menu"
 									anchorEl={menuAnchor}
 									open={Boolean(menuAnchor)}
-									onClose={this.handleClose}
+									onClose={this.closeMenu}
 								>
 									<MenuItem
 										disabled
@@ -148,13 +147,13 @@ class Header extends React.Component {
 									<MenuItem
 										button
 										disabled={!user.username}
-										onClick={() => removeAccount(user.username)}>
+										onClick={() => this.removeAccount(user.username)}>
 										<ListItemText primary="Unregister Device" />
 									</MenuItem>
 									<MenuItem
 										button
 										disabled={!user.authenticated}
-										onClick={lockAccount}>
+										onClick={this.lockAccount}>
 										<ListItemText primary="Log Out" />
 									</MenuItem>
 
@@ -200,16 +199,8 @@ const mapStateToProps = (state) => {
 	};
 };
 
-const mapDispatchToProps = () => {
-	return {
-		foo: () => {
-			// nothing there
-		},
-	};
-};
-
 export default compose(
 	withStyles(styles),
 	withRouter,
-	connect(mapStateToProps, mapDispatchToProps)
+	connect(mapStateToProps, {})
 )(Header);

@@ -15,7 +15,14 @@ import styles from "../../styles";
 
 class UsernameForm extends React.Component {
 	render() {
-		const { classes, handleSubmit, asyncValidating, invalid, pristine } = this.props;
+		const {
+			classes,
+			handleSubmit,
+			asyncValidating,
+			invalid,
+			pristine
+		} = this.props;
+
 		return (
 			<form onSubmit={handleSubmit}>
 				<Field
@@ -59,7 +66,6 @@ export default compose(
 		destroyOnUnmount: false,
 		forceUnregisterOnUnmount: true,
 		validate,
-		asyncValidate,
-		asyncBlurFields: ["username"]
+		asyncValidate
 	})
 )(UsernameForm);

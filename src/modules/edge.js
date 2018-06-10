@@ -10,14 +10,73 @@ export const edge = makeContext({
 	appId: edgeWalletName
 });
 
-const usernameAvailable = (username) => {
-	try {
-		window.abcui.usernameAvailable(username);
-	}
-	catch(error) {
-		console.error("Error checking username.");
-		console.error(error);
-	}
+export const storeEdgeOnWindow = async () => {
+	return window.abcui = edge;
+};
+
+export const getLocalUsername = async () => {
+	const usernameList = await window.abcui.usernameList();
+	return usernameList[0];
+};
+
+export const logout = async () => {
+	return window.abcui.abcAccount.logout();
+};
+
+export const deleteLocalAccount = async (username) => {
+	return window.abcui.deleteLocalAccount(username);
+};
+
+export const pinLogin = async (username, pin, loginCallbacks, errorCallback, successCallback) => {
+	return await window.abcui.loginWithPIN(
+		username,
+		String(pin),
+		loginCallbacks,
+		function (error, account) {
+			if (error) {
+				errorCallback(error);
+			} else {
+				successCallback(account);
+			}
+		}
+	);
+};
+
+export const passwordLogin = async (username, password, loginCallbacks, errorCallback, successCallback) => {
+	return await window.abcui.loginWithPassword(
+		username,
+		password,
+		loginCallbacks,
+		function (error, account) {
+			if (error) {
+				errorCallback(error);
+			} else {
+				successCallback(account);
+			}
+		}
+	);
+};
+
+export const usernameAvailable = async (username) => {
+	const valid = username.length > 4;
+	const available = await window.abcui.usernameAvailable(username);
+	return valid && available;
+};
+
+export const createNewAccount = async (username, password, pin, loginCallbacks, errorCallback, successCallback) => {
+	return await window.abcui.createAccount(
+		username,
+		password,
+		String(pin),
+		loginCallbacks,
+		function (error, account) {
+			if (error) {
+				errorCallback(error);
+			} else {
+				successCallback(account);
+			}
+		}
+	);
 };
 
 const timeout = ms => new Promise(res => setTimeout(res, ms));
@@ -72,12 +131,6 @@ export const signAndSendTransaction = async (walletId, toAddress, amountInWei) =
 	} catch (error) {
 		console.log(error);
 	}
-};
-
-export const usernameValid = async (username) => {
-	const valid = username.length > 4;
-	const available = await usernameAvailable(username);
-	return valid && available;
 };
 
 export default edge;

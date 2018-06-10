@@ -15,18 +15,19 @@ import WalletContainer from "../WalletContainer";
 import ModalContainer from "../ModalContainer";
 import MessageContainer from "../MessageContainer";
 import { openMessage } from "../MessageContainer/redux/actions";
-import edge from "../../modules/edge";
+import { storeEdgeOnWindow, getLocalUsername } from "../../modules/edge";
 import { setUsername } from "../../redux/UserRedux";
 import PrivateRoute from "../PrivateRoute";
 
 export class App extends React.Component {
 	constructor(props) {
 		super(props);
-		// Setup edge and store on window
-		window.abcui = edge;
 		const self = this;
-		window.abcui.usernameList().then( (usernameList) => {
-			self.props.setUsername(usernameList[0]);
+		storeEdgeOnWindow().then( () => {
+			getLocalUsername().then( (username) => {
+				console.log(username);
+				self.props.setUsername(username);
+			});
 		});
 	}
 
@@ -65,7 +66,8 @@ export class App extends React.Component {
 
 App.propTypes = {
 	classes: PropTypes.object.isRequired,
-	user: PropTypes.object.isRequired
+	user: PropTypes.object.isRequired,
+	setUsername: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => {

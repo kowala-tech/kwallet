@@ -7,7 +7,10 @@ import {
 import { replace } from "react-router-redux";
 import {
 	getPrimaryWallet,
-	setEdgeAccount
+	setEdgeAccount,
+	pinLogin,
+	passwordLogin,
+	createNewAccount
 } from "../../modules/edge";
 
 const loginCallbacks = (dispatch) => {
@@ -87,17 +90,12 @@ export const setAuthenticated = (bool) => {
 export const loginWithPin = (username, pin) => {
 	return (dispatch) => {
 		dispatch(loginLoading());
-		window.abcui.loginWithPIN(
+		pinLogin(
 			username,
-			String(pin),
+			pin,
 			loginCallbacks(dispatch),
-			function (error, account) {
-				if (error) {
-					dispatch(loginError(error.message));
-				} else {
-					dispatch(loginSuccess(account));
-				}
-			}
+			(error) => { dispatch(loginError(error.message)); },
+			(account) => { dispatch(loginSuccess(account)); }
 		);
 	};
 };
@@ -105,32 +103,25 @@ export const loginWithPin = (username, pin) => {
 export const loginWithPassword = (username, password) => {
 	return (dispatch) => {
 		dispatch(loginLoading());
-		window.abcui.loginWithPassword(
+		passwordLogin(
 			username,
 			password,
 			loginCallbacks(dispatch),
-			(error, account) => {
-				if (error) {
-					dispatch(loginError(error.message));
-				} else {
-					dispatch(loginSuccess(account));
-				}
-			}
+			(error) => { dispatch(loginError(error.message)); },
+			(account) => { dispatch(loginSuccess(account)); }
 		);
 	};
 };
 
 export const createAccount = (username, password, pin) => {
 	return (dispatch) => {
-		window.abcui.createAccount(
+		createNewAccount(
 			username,
 			password,
 			pin,
-			{},
-			function (error, account) {
-				if (error) return console.error({ message: "could not create wallet" });
-				dispatch(loginSuccess(account));
-			}
+			loginCallbacks(dispatch),
+			(error) => { console.error({ message: "could not create wallet", error: error }); },
+			(account) => { dispatch(loginSuccess(account)); }
 		);
 	};
 };
