@@ -9,6 +9,7 @@ import path from "path";
 
 const GLOBALS = {
 	KOWALA_NETWORK: JSON.stringify(process.env.KOWALA_NETWORK),
+	APP_VERSION: JSON.stringify(require("./package.json").version),
 	"process.env.NODE_ENV": JSON.stringify("production"),
 	__DEV__: false
 };

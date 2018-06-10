@@ -30,6 +30,7 @@ export default {
 	plugins: [
 		new webpack.DefinePlugin({
 			KOWALA_NETWORK: JSON.stringify(process.env.KOWALA_NETWORK),
+			APP_VERSION: JSON.stringify(require("./package.json").version),
 			"process.env.NODE_ENV": JSON.stringify("development"), // Tells React to build in either dev or prod modes. https://facebook.github.io/react/downloads.html (See bottom)
 			__DEV__: true
 		}),

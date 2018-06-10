@@ -6,6 +6,7 @@ import { Switch, Route, withRouter, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 // Material UI Imports
 import { withStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
 // Component Related Imports
 import styles from "./styles";
 import Header from "../Header";
@@ -58,6 +59,16 @@ export class App extends React.Component {
 					</Switch>
 					<ModalContainer />
 					<MessageContainer />
+					<div className={classes.footer}>
+						<Typography variant="caption"
+							className={classes.fadedText}>
+							v{APP_VERSION}
+						</Typography>
+						<Typography variant="caption"
+							className={classes.fadedText}>
+							Kowala Network ({KOWALA_NETWORK || "kusd-testnet"})
+						</Typography>
+					</div>
 				</main>
 			</div>
 		);

@@ -1,4 +1,4 @@
-# kWallet (0.0.1-alpha)
+# kWallet
 
 ## Getting Started
 Requires yarn and watchman.

@@ -272,7 +272,8 @@
       "react/sort-comp": 1
     },
     "globals": {
-      "KOWALA_NETWORK": false
+      "KOWALA_NETWORK": false,
+      "APP_VERSION": false
     }
   },
   "main": "index.js",

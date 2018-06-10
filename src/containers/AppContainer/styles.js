@@ -17,9 +17,14 @@ const styles = (theme) => ({
 		marginBottom: theme.spacing.unit * 2,
 		marginTop: -toolbarHeight
 	},
-	faded: {
+	footer: {
+		textAlign: "center",
+		position: "absolute",
+		bottom: theme.spacing.unit * 2
+	},
+	fadedText: {
 		color: theme.palette.primary.contrastText,
-		opacity: "0.9"
+		opacity: "0.75"
 	}
 });
 
