@@ -36,8 +36,18 @@ class PinForm extends React.Component {
 		);
 	}
 
+	clearPin() {
+		this.setState(
+			{ pin: "" },
+			() => {
+				this.pinInput.current.value = "";
+			}
+		);
+	}
+
 	submit() {
-		this.props.onSubmit( this.props.username, this.state.pin );
+		this.props.onSubmit( this.props.username, this.state.pin, this.clearPin.bind(this) );
+
 	}
 
 	render() {

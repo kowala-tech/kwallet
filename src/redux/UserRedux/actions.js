@@ -87,14 +87,14 @@ export const setAuthenticated = (bool) => {
 	};
 };
 
-export const loginWithPin = (username, pin) => {
+export const loginWithPin = (username, pin, callback) => {
 	return (dispatch) => {
 		dispatch(loginLoading());
 		pinLogin(
 			username,
 			pin,
 			loginCallbacks(dispatch),
-			(error) => { dispatch(loginError(error.message)); },
+			(error) => { dispatch(loginError(error.message)); callback(); },
 			(account) => { dispatch(loginSuccess(account)); }
 		);
 	};

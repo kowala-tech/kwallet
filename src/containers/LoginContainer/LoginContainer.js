@@ -80,10 +80,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		loginWithPin: (username, pin) => {
+		loginWithPin: (username, pin, callback) => {
 			dispatch(loginWithPin(
 				username,
-				pin
+				pin,
+				callback
 			));
 		},
 		loginWithPassword: (props) => {

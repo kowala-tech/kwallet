@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { compose } from "recompose";
+import classNames from "classnames";
 // Material UI Imports
 import { withStyles } from "@material-ui/core/styles";
 import LockOutline from "@material-ui/icons/LockOutline";
@@ -26,14 +27,14 @@ class PinLogin extends React.Component {
 			<div>
 				<Grow in>
 					<div className={classes.flexContainer}>
-						<LockOutline className={classes.lockIcon}/>
+						<LockOutline className={classNames("kowala",[classes.lockIcon])}/>
 						<PinForm
 							onSubmit={handleSubmit}
 							loading={loading}
 							error={error}
 							username={username}
 						/>
-						<Typography variant="caption"
+						<Typography variant="body1"
 							className={classes.unlockMessage}>
 							Enter your PIN to unlock your wallet
 						</Typography>
