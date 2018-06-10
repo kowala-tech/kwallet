@@ -1,6 +1,6 @@
 pipeline:
     build-kusd-testnet:
-        image: node:9
+        image: node:10
         commands:
             - export KOWALA_NETWORK="kusd-testnet"
             - make install
@@ -19,7 +19,7 @@ pipeline:
         when:
             branch: [develop]
     build-kusd-zygote:
-        image: node:9
+        image: node:10
         commands:
             - export KOWALA_NETWORK="kusd-zygote"
             - make install
