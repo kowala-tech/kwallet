@@ -19,16 +19,16 @@ class WalletContainer extends React.Component {
 		const {
 			classes,
 			openModal,
-			currentWallet
+			wallet
 		} = this.props;
 
 		return (
 			<div className={classes.appFrame}>
 				<main className={classes.content}>
-					<BalanceCard balance={currentWallet.balance}/>
+					<BalanceCard balance={wallet.balance}/>
 					<TransactionList
-						loading={currentWallet.loading}
-						transactions={currentWallet.transactions}
+						loading={wallet.loading}
+						transactions={wallet.transactions}
 						depositButton={(
 							<Button
 								fullWidth
@@ -40,11 +40,13 @@ class WalletContainer extends React.Component {
 							</Button>
 						)}
 					/>
-					<Fab
-						color="primary"
-						onClick={() => {openModal("SEND_MODAL");}}
-						icon={<SendIcon />}
-					/>
+					{ wallet.balance > 0 && (
+						<Fab
+							color="primary"
+							onClick={() => {openModal("SEND_MODAL");}}
+							icon={<SendIcon />}
+						/>
+					) }
 				</main>
 			</div>
 		);
@@ -54,12 +56,12 @@ class WalletContainer extends React.Component {
 WalletContainer.propTypes = {
 	classes: PropTypes.object.isRequired,
 	openModal: PropTypes.func.isRequired,
-	currentWallet: PropTypes.object.isRequired
+	wallet: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => {
 	return {
-		currentWallet: state.wallet
+		wallet: state.wallet
 	};
 };
 
