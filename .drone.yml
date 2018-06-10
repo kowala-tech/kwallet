@@ -1,10 +1,27 @@
 pipeline:
+    install:
+        image: node:9
+        commands:
+            - make install
+        when:
+            branch: [develop, master]
+    lint:
+        image: node:9
+        commands:
+            - make lint
+        when:
+            branch: [develop, master]
+    test:
+        image: node:9
+        commands:
+            - make test
+        when:
+            branch: [develop, master]
     build-kusd-testnet:
         image: node:9
         commands:
             - export KOWALA_NETWORK="kusd-testnet"
-            - make install
-            - make build
+            - yarn run drone:build
         when:
             branch: [develop]
     upload-kusd-testnet:
@@ -22,8 +39,7 @@ pipeline:
         image: node:9
         commands:
             - export KOWALA_NETWORK="kusd-zygote"
-            - make install
-            - make build
+            - yarn run drone:build
         when:
             branch: [develop]
     upload-kusd-zygote:

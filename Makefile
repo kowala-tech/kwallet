@@ -10,6 +10,9 @@ build:
 test:
 	@yarn run test
 
+lint:
+	@yarn run lint
+
 start:
 	@yarn run start
 

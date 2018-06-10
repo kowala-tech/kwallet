@@ -18,6 +18,7 @@
     "lint:fix": "npm run lint -- --fix",
     "clean-dist": "npm run remove-dist && mkdir dist",
     "remove-dist": "rimraf ./dist",
+    "drone:build": "npm run clean-dist && babel-node tools/build.js",
     "prebuild": "npm run clean-dist && npm run lint && npm run test",
     "build": "babel-node tools/build.js",
     "test": "jest",
