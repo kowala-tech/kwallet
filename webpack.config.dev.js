@@ -43,7 +43,8 @@ export default {
 				removeComments: true,
 				collapseWhitespace: true
 			},
-			inject: true
+			inject: true,
+			kowalaNetwork: JSON.stringify(process.env.KOWALA_NETWORK) || "kusd-testnet"
 		})
 	],
 	module: {
