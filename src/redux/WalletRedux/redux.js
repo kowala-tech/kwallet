@@ -3,7 +3,7 @@ import Immutable from "seamless-immutable";
 const INITIAL_STATE = Immutable({
 	loading: false,
 	address: null,
-	balance: null,
+	balance: "0",
 	name: null,
 	id: null,
 	transactions: []

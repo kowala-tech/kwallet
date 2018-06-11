@@ -17,7 +17,7 @@ const loginCallbacks = (dispatch) => {
 	return {
 		callbacks: {
 			onBalanceChanged (walletId, something, balance) {
-				dispatch(setWalletBalance(balance));
+				dispatch(setWalletBalance(balance.toString()));
 			},
 			onNewTransactions (walletId, txs) {
 				console.log( "GOT NEW TX");

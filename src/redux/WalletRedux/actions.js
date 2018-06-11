@@ -21,15 +21,15 @@ export const createWallet = () => {
 };
 
 export function loadWallet(walletId) {
-	const wallet = getWallet(walletId);
-	const address = wallet.keys.address;
-	const balance = wallet.getBalance();
 	return (dispatch) => {
+		dispatch(setWalletLoading(true));
+		const wallet = getWallet(walletId);
+		const address = wallet.keys.address;
+		const balance = wallet.getBalance("KUSD");
 		wallet.getTransactions().then( (transactions) => {
 			dispatch(replaceTransactions(transactions));
 		});
 		Promise.all([
-			dispatch(setWalletLoading(true)),
 			dispatch(setWalletId(walletId)),
 			dispatch(setWalletAddress(address)),
 			dispatch(setWalletBalance(balance))

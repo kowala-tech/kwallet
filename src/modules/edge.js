@@ -82,8 +82,8 @@ export const createNewAccount = async (username, password, pin, loginCallbacks, 
 const timeout = ms => new Promise(res => setTimeout(res, ms));
 
 export const setEdgeAccount = async (account) => {
-	window.abcui.abcAccount = account;
 	await timeout(500); // edge is slow...so we wait
+	window.abcui.abcAccount = account;
 	return account;
 };
 
@@ -98,8 +98,7 @@ export const getLocalEdgeAccount = () => {
 
 export const getWallet = (id) => {
 	console.log("Getting wallet " + id);
-	const account = getLocalEdgeAccount();
-	const wallets = account.currencyWallets;
+	const wallets = getLocalEdgeAccount().currencyWallets;
 	return wallets[id];
 };
 
