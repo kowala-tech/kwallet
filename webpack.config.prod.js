@@ -63,7 +63,6 @@ export default {
 				minifyURLs: true
 			},
 			inject: true,
-			kowalaNetwork: process.env.KOWALA_NETWORK || "kusd-testnet",
 			trackJSToken: "024330b86ac4459fa94220413530cd2d"
 		}),
 		new CompressionPlugin({

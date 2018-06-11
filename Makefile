@@ -14,7 +14,7 @@ lint:
 	@yarn run lint
 
 start:
-	@yarn run start
+	KOWALA_NETWORK="kusd-zygote" yarn run start
 
 storybook:
 	@yarn run storybook

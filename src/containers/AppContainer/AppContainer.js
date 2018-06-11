@@ -63,7 +63,7 @@ export class App extends React.Component {
 						<Typography variant="caption"
 							paragraph
 							className={classes.fadedText}>
-							Kowala Web Wallet v{APP_VERSION} (Network: {KOWALA_NETWORK || "kusd-testnet"})
+							Kowala Web Wallet v{APP_VERSION} ({KOWALA_NETWORK})
 						</Typography>
 						<Typography variant="caption"
 							className={classes.fadedText}>

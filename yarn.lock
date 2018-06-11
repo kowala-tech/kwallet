@@ -3571,7 +3571,7 @@ edge-core-js@^0.9.3:
 
 "edge-currency-kowala@https://github.com/kowala-tech/edge-currency-kowala.git#develop":
   version "0.0.1"
-  resolved "https://github.com/kowala-tech/edge-currency-kowala.git#aa21dc5efcad3c73e9e8feb06af02bb19b598806"
+  resolved "https://github.com/kowala-tech/edge-currency-kowala.git#e92f57aa6f25a451260ab3cc3c00bf9696d6cea6"
   dependencies:
     biggystring "^3.0.0"
     bn.js "^4.11.7"
