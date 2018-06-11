@@ -63,10 +63,8 @@ export default {
 				minifyURLs: true
 			},
 			inject: true,
-			kowalaNetwork: process.env.KOWALA_NETWORK || "kusd-testnet"
-			// Note that you can add custom options here if you need to handle other custom logic in index.html
-			// To track JavaScript errors via TrackJS, sign up for a free trial at TrackJS.com and enter your token below.
-			// trackJSToken: "b98ea18752d84633a1d153a27fcc4d55"
+			kowalaNetwork: process.env.KOWALA_NETWORK || "kusd-testnet",
+			trackJSToken: "024330b86ac4459fa94220413530cd2d"
 		}),
 		new CompressionPlugin({
 			asset: "[path].gz[query]",
