@@ -5,3 +5,4 @@ coverage/
 .yarn_cache/*
 !.yarn_cache/.gitkeep
 node_modules/
+yarn-error.log
