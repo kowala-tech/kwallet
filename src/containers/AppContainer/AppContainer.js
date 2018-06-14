@@ -59,14 +59,14 @@ export class App extends React.Component {
 					</Switch>
 					<ModalContainer />
 					<MessageContainer />
-					<div className={classes.footer}>
-						<Typography variant="caption"
-							className={classes.fadedText}>
-							THIS IS EXPERIMENTAL SOFTWARE AND IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. BE CAUTIOUS AND USE AT YOUR OWN RISK.
-						</Typography>
-
-					</div>
 				</main>
+				<div className={classes.footer}>
+					<Typography
+						className={classes.fadedText}
+					>
+						kWALLET IS OPEN SOURCE SOFTWARE AND IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED.
+					</Typography>
+				</div>
 			</div>
 		);
 	}

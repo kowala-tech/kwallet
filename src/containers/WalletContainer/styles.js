@@ -4,10 +4,10 @@ const toolbarHeight = 75;
 
 const styles = theme => ({
 	appFrame: {
-		display: "flex",
+		position: "relative",
 		width: "100%",
 		maxWidth: "720px",
-		height: `calc(100vh - ${toolbarHeight}px)`,
+		height: "100%",
 		marginTop: toolbarHeight,
 		marginBottom: theme.spacing.unit * 2,
 		overflow: "scroll"

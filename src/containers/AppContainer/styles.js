@@ -18,13 +18,15 @@ const styles = (theme) => ({
 		marginTop: -toolbarHeight
 	},
 	footer: {
-		textAlign: "center",
 		position: "absolute",
+		width: "100%",
+		textAlign: "center",
 		bottom: theme.spacing.unit * 2
 	},
 	fadedText: {
 		color: theme.palette.primary.contrastText,
-		opacity: "0.75"
+		opacity: "0.75",
+		fontSize: 10
 	}
 });
 
