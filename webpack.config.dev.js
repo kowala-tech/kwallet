@@ -1,7 +1,9 @@
 import webpack from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import GitRevisionPlugin from "git-revision-webpack-plugin";
 import path from "path";
 
+const gitRevisionPlugin = new GitRevisionPlugin();
 
 export default {
 	mode: "development",
@@ -29,10 +31,10 @@ export default {
 	},
 	plugins: [
 		new webpack.DefinePlugin({
+			VERSION: JSON.stringify(gitRevisionPlugin.version()),
 			KOWALA_NETWORK: JSON.stringify(process.env.KOWALA_NETWORK),
-			APP_VERSION: JSON.stringify(require("./package.json").version),
 			"process.env.NODE_ENV": JSON.stringify("development"), // Tells React to build in either dev or prod modes. https://facebook.github.io/react/downloads.html (See bottom)
-			__DEV__: true
+			__DEV__: true,
 		}),
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NoEmitOnErrorsPlugin(),

@@ -170,7 +170,7 @@ class Header extends React.Component {
 										</div>
 										<div style={{ flex:1 }}>
 											<Typography variant="caption">
-												v{APP_VERSION}
+												{KOWALA_NETWORK}-{VERSION}
 											</Typography>
 										</div>
 									</MenuItem>

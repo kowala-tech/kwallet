@@ -61,11 +61,6 @@ export class App extends React.Component {
 					<MessageContainer />
 					<div className={classes.footer}>
 						<Typography variant="caption"
-							paragraph
-							className={classes.fadedText}>
-							Kowala Web Wallet v{APP_VERSION} ({KOWALA_NETWORK})
-						</Typography>
-						<Typography variant="caption"
 							className={classes.fadedText}>
 							THIS IS EXPERIMENTAL SOFTWARE AND IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. BE CAUTIOUS AND USE AT YOUR OWN RISK.
 						</Typography>

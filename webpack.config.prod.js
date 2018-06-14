@@ -5,11 +5,14 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import WebpackMd5Hash from "webpack-md5-hash";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import CompressionPlugin from "compression-webpack-plugin";
+import GitRevisionPlugin from "git-revision-webpack-plugin";
 import path from "path";
+
+const gitRevisionPlugin = new GitRevisionPlugin();
 
 const GLOBALS = {
 	KOWALA_NETWORK: JSON.stringify(process.env.KOWALA_NETWORK),
-	APP_VERSION: JSON.stringify(require("./package.json").version),
+	VERSION: JSON.stringify(gitRevisionPlugin.version()),
 	"process.env.NODE_ENV": JSON.stringify("production"),
 	__DEV__: false
 };
