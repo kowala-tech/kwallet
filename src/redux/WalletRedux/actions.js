@@ -25,8 +25,8 @@ export function loadWallet(walletId) {
 		dispatch(setWalletLoading(true));
 		const wallet = getWallet(walletId);
 		const address = wallet.keys.address;
-		const balance = wallet.getBalance("KUSD");
-		wallet.getTransactions().then( (transactions) => {
+		const balance = wallet.getBalance();
+		wallet.getTransactions({ startIndex: 1 }).then( (transactions) => {
 			dispatch(replaceTransactions(transactions));
 		});
 		Promise.all([

@@ -3545,9 +3545,9 @@ ecc-jsbn@~0.1.1:
   dependencies:
     jsbn "~0.1.0"
 
-edge-core-js@^0.9.3:
-  version "0.9.3"
-  resolved "https://registry.yarnpkg.com/edge-core-js/-/edge-core-js-0.9.3.tgz#f5890a63dc061090eb291d5d5d76853827dc582a"
+edge-core-js@^0.9.4:
+  version "0.9.4"
+  resolved "https://registry.yarnpkg.com/edge-core-js/-/edge-core-js-0.9.4.tgz#99d1c1a2cbb8314228d496b15817563484bf497c"
   dependencies:
     aes-js "^3.1.0"
     base-x "^1.0.4"
@@ -3571,7 +3571,7 @@ edge-core-js@^0.9.3:
 
 "edge-currency-kowala@https://github.com/kowala-tech/edge-currency-kowala.git#develop":
   version "0.0.1"
-  resolved "https://github.com/kowala-tech/edge-currency-kowala.git#0b0d9dadbc5c289c33f30e7f41304a44da7b5146"
+  resolved "https://github.com/kowala-tech/edge-currency-kowala.git#07930095ed038d77b59833fc1eb89ad4a4c82ffa"
   dependencies:
     biggystring "^3.0.0"
     bn.js "^4.11.7"

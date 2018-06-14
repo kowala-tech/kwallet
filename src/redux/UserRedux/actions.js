@@ -16,17 +16,17 @@ import {
 const loginCallbacks = (dispatch) => {
 	return {
 		callbacks: {
-			onBalanceChanged (walletId, something, balance) {
-				dispatch(setWalletBalance(balance.toString()));
+			onBalanceChanged: (walletId, currencyCode, balance) => {
+				console.log( "Balance updated!");
+				if (balance) { dispatch(setWalletBalance(balance.toString())); }
 			},
-			onNewTransactions (walletId, txs) {
-				console.log( "GOT NEW TX");
+			onTransactionsChanged: (walletId, txs) => {
+				console.log( "Updated transaction!");
 				dispatch(addTransaction(txs[0]));
 			},
-			onTransactionsChanged (walletId, txs) {
-				console.log( "GOT CHANGED TX");
-				dispatch(addTransaction(txs[0]));
-			},
+			onTxidsChanged: () => {
+				console.log( "Updated transaction ids!");
+			}
 		}
 	};
 };
@@ -38,7 +38,6 @@ const loginLoading = () => {
 };
 
 const loginSuccess = (account) => {
-	console.log("Login successful!");
 	return (dispatch) => {
 		setEdgeAccount(account).then( () => {
 			Promise.all([
