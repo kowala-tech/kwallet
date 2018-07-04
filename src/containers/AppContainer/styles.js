@@ -2,7 +2,7 @@ const toolbarHeight = 75;
 
 const styles = (theme) => ({
 	root: {
-		height: "100vh",
+		height: "inherit",
 		backgroundColor: theme.palette.primary.main,
 		color: theme.palette.primary.contrastText
 	},
@@ -11,7 +11,7 @@ const styles = (theme) => ({
 		flexDirection: "column",
 		alignItems: "center",
 		justifyContent: "center",
-		height: "100%",
+		height: "100vh",
 		marginLeft: theme.spacing.unit * 2,
 		marginRight: theme.spacing.unit * 2,
 		marginBottom: theme.spacing.unit * 2,
